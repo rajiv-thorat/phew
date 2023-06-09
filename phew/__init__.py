@@ -56,9 +56,10 @@ def connect_to_wifi(ssid, password, timeout_seconds=30):
       status = new_status
     time.sleep(0.25)
 
-  if wlan.status() == network.STAT_GOT_IP:
+  """ if wlan.status() == network.STAT_GOT_IP:
     return wlan.ifconfig()[0]
-  return None
+  return None """
+  return wlan
 
 
 # helper method to put the pico into access point mode
