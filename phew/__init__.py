@@ -29,6 +29,11 @@ def is_connected_to_wifi():
   wlan = network.WLAN(network.STA_IF)
   return wlan.isconnected()
 
+def scan_wifi():
+  import network, time
+  wlan = network.WLAN(network.STA_IF)
+  return wlan.scan()
+
 # helper method to quickly get connected to wifi
 def connect_to_wifi(ssid, password, timeout_seconds=30):
   import network, time
@@ -56,10 +61,10 @@ def connect_to_wifi(ssid, password, timeout_seconds=30):
       status = new_status
     time.sleep(0.25)
 
-  """ if wlan.status() == network.STAT_GOT_IP:
+  if wlan.status() == network.STAT_GOT_IP:
     return wlan.ifconfig()[0]
-  return None """
-  return wlan
+  return None
+  #eturn wlan
 
 
 # helper method to put the pico into access point mode
